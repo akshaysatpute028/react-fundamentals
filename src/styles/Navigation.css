@@ -20,16 +20,65 @@
 }
 
 /* Logo/Brand styling */
+/* Navbar Logo */
+
 .nav-logo {
-  color: white;
-  font-size: 1.8rem;
-  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
   text-decoration: none;
-  transition: transform 0.2s ease;
+
+  font-size: 1.7rem;
+  font-weight: 700;
+
+  letter-spacing: 0.5px;
+
+  transition: all 0.3s ease;
 }
 
-.nav-logo:hover {
-  transform: scale(1.05);
+.logo-text{
+  color: white;
+
+  background: linear-gradient(
+    90deg,
+    #61dafb,
+    #ffffff
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.react-logo-icon{
+  font-size: 2.2rem;
+
+  color: #61dafb;
+
+  animation: spinReact 12s linear infinite;
+
+  filter:
+    drop-shadow(
+      0 0 8px rgba(97,218,251,.5)
+    );
+}
+
+.nav-logo:hover{
+  transform: scale(1.04);
+}
+
+.nav-logo:hover .react-logo-icon{
+  animation-duration: 4s;
+}
+
+@keyframes spinReact{
+  from{
+    transform: rotate(0deg);
+  }
+
+  to{
+    transform: rotate(360deg);
+  }
 }
 
 /* Navigation menu - flex layout for horizontal menu */
