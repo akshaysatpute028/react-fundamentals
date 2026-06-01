@@ -56,6 +56,43 @@ body {
   font-weight: 600;
 }
 
+.footer-tech{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  font-size: 1rem;
+
+  color: rgba(255,255,255,.85);
+
+  flex-wrap: wrap;
+}
+
+.react-icon{
+  color: #61dafb;
+
+  font-size: 1.2rem;
+
+  animation: spinReact 10s linear infinite;
+}
+
+.css-icon{
+  color: #f1c929;
+
+  font-size: 1.2rem;
+}
+
+@keyframes spinReact{
+  from{
+    transform: rotate(0deg);
+  }
+
+  to{
+    transform: rotate(360deg);
+  }
+}
+
 /* Global text styles */
 h1, h2, h3, h4, h5, h6 {
   font-weight: 700;

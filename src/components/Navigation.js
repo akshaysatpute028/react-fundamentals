@@ -3,6 +3,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/Navigation.css';
+import { FaReact } from 'react-icons/fa';
 
 // The Navigation component displays a navigation bar at the top of the page
 const Navigation = () => {
@@ -13,7 +14,8 @@ const Navigation = () => {
       <div className="nav-container">
         {/* Logo/Brand name */}
         <Link to="/" className="nav-logo">
-          Learn React 📚
+          <FaReact className="react-logo-icon" />
+          <span className="logo-text">Fundamentals</span>
         </Link>
 
         {/* Navigation links - Link is from React Router and prevents page reload */}

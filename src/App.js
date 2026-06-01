@@ -10,6 +10,7 @@ import Contact from './pages/Contact';
 import NotFound from './pages/NotFound';
 import { ThemeProvider } from './context/ThemeContext';
 import './App.css';
+import Footer from './pages/Footer';
 
 function App() {
   return (
@@ -29,12 +30,8 @@ function App() {
             </Routes>
           </main>
 
-          <footer className="app-footer">
-            <p>
-              © 2024 Learn React - Master React Fundamentals | Built for Beginners
-            </p>
-            <p>Built with ⚛️ React and styled with 💅 CSS</p>
-          </footer>
+          
+          <Footer />
         </div>
       </Router>
     </ThemeProvider>
