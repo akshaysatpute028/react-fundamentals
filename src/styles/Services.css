@@ -1,0 +1,398 @@
+/* Services Page Styling - Service cards grid and information layout */
+
+.services-container {
+  width: 100%;
+}
+
+/* Services header */
+.services-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 4rem 2rem;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.services-header h1 {
+  font-size: 2.8rem;
+  margin: 0 0 1rem 0;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.services-header p {
+  font-size: 1.3rem;
+  margin: 0;
+  opacity: 0.95;
+}
+
+/* Main services content */
+.services-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+.intro-text {
+  font-size: 1.1rem;
+  text-align: center;
+  color: #555;
+  margin-bottom: 2.5rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 500;
+}
+
+/* Services Grid - Responsive grid layout */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+/* Individual service card */
+.service-card {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-top: 4px solid #667eea;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+/* Card hover effect - lifts up and increases shadow */
+.service-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 12px 30px rgba(102, 126, 234, 0.2);
+  border-top-color: #764ba2;
+}
+
+.service-card:hover::before {
+  left: 100%;
+}
+
+/* Service icon - large emoji or icon */
+.service-icon {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  display: inline-block;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.service-title {
+  font-size: 1.5rem;
+  color: #333;
+  margin: 1rem 0;
+  font-weight: 600;
+}
+
+.service-description {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+/* Learn More button in cards */
+.service-button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 10px rgba(102, 126, 234, 0.3);
+}
+
+.service-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(102, 126, 234, 0.4);
+}
+
+.service-button:active {
+  transform: translateY(0);
+}
+
+/* Services info section below cards */
+.services-info {
+  background: linear-gradient(135deg, #f5f5f5 0%, #f9f9f9 100%);
+  padding: 3rem 2rem;
+  margin-top: 3rem;
+  border-radius: 12px;
+  border: 1px solid #e5e5e5;
+}
+
+.services-info h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 2rem;
+  font-weight: 700;
+}
+
+/* Info boxes grid */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.info-box {
+  background: white;
+  padding: 1.8rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  border-left: 4px solid #667eea;
+  transition: all 0.3s ease;
+}
+
+.info-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 15px rgba(102, 126, 234, 0.15);
+}
+
+.info-box h3 {
+  color: #667eea;
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+}
+
+.info-box p {
+  color: #666;
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+/* MODAL STYLES */
+.modal-overlay {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 1rem;
+  backdrop-filter: blur(2px);
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-content {
+  background: white;
+  border-radius: 12px;
+  max-width: 600px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.4s ease;
+  position: relative;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: #f5f5f5;
+  border: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.3rem;
+  color: #666;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.modal-close:hover {
+  background: #667eea;
+  color: white;
+  transform: rotate(90deg);
+}
+
+.modal-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.modal-icon {
+  font-size: 2.5rem;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.modal-body {
+  padding: 2rem;
+}
+
+.modal-section {
+  margin-bottom: 2rem;
+}
+
+.modal-section:last-child {
+  margin-bottom: 0;
+}
+
+.modal-section h3 {
+  color: #333;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.code-block {
+  background: #f5f5f5;
+  border: 1px solid #e5e5e5;
+  border-radius: 6px;
+  padding: 1rem;
+  overflow-x: auto;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  font-family: 'Courier New', Courier, monospace;
+  color: #333;
+}
+
+.code-block code {
+  color: #667eea;
+}
+
+.key-points {
+  list-style: none;
+  padding: 0;
+}
+
+.key-points li {
+  padding: 0.6rem 0;
+  color: #555;
+  line-height: 1.6;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.key-points li:last-child {
+  border-bottom: none;
+}
+
+.real-world {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+  padding: 1rem;
+  border-left: 4px solid #667eea;
+  border-radius: 6px;
+  color: #555;
+  line-height: 1.7;
+}
+
+/* Scrollbar styling for modal */
+.modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background: #667eea;
+  border-radius: 4px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background: #764ba2;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .services-header {
+    padding: 2rem 1rem;
+  }
+
+  .services-header h1 {
+    font-size: 2rem;
+  }
+
+  .services-content {
+    padding: 2rem 1rem;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .services-info h2 {
+    font-size: 1.5rem;
+  }
+
+  .modal-overlay {
+    padding: 0.5rem;
+  }
+
+  .modal-content {
+    max-height: 90vh;
+  }
+
+  .modal-header {
+    padding: 1.5rem;
+  }
+
+  .modal-body {
+    padding: 1.5rem;
+  }
+
+  .service-icon {
+    font-size: 2.5rem;
+  }
+}
