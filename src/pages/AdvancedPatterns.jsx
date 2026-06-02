@@ -6,35 +6,91 @@ import { useTodoReducer } from '../hooks/useTodoReducer';
 import '../styles/AdvancedPatterns.css';
 
 const AdvancedPatterns = () => {
+
+    /* Global theme from Context API */
     const { theme, toggleTheme, isDarkMode } = useTheme();
+
+    /*
+      useLocalStorage works like useState
+      but automatically saves data to localStorage
+    */
     const [notes, setNotes] = useLocalStorage('app-notes', []);
+
+    /* Basic state management using useState */
     const [searchTerm, setSearchTerm] = useState('');
     const [newNote, setNewNote] = useState('');
-    const inputRef = useRef(null);
-    const { todos, addTodo, deleteTodo, toggleTodo, clearCompleted } = useTodoReducer();
-    const { time, isActive, toggle, reset, formatTime } = useTimer(1500);
     const [todoInput, setTodoInput] = useState('');
+
+    /*
+      useRef stores values without causing re-render.
+      Here it is used to focus input field.
+    */
+    const inputRef = useRef(null);
+
+    /*
+      useReducer is useful for complex state management.
+      Todo logic is extracted into custom reducer hook.
+    */
+    const { todos, addTodo, deleteTodo, toggleTodo, clearCompleted } = useTodoReducer();
+
+    /*
+      Custom timer hook
+      1500 sec = 25 mins Pomodoro
+    */
+    const { time, isActive, toggle, reset, formatTime } = useTimer(1500);
+
+    /*
+      useId generates unique IDs
+      useful for accessibility
+    */
     const noteId = useId();
 
+    /*
+      useMemo prevents recalculating filtered notes
+      on every render
+    */
     const filteredNotes = useMemo(() => {
         return notes.filter(note =>
             note.text.toLowerCase().includes(searchTerm.toLowerCase())
         );
     }, [notes, searchTerm]);
 
+    /*
+      Calculate stats only when todos change
+    */
     const stats = useMemo(() => ({
         total: todos.length,
         completed: todos.filter(t => t.completed).length,
         pending: todos.filter(t => !t.completed).length,
-        completion: todos.length > 0 ? Math.round((todos.filter(t => t.completed).length / todos.length) * 100) : 0
+        completion:
+            todos.length > 0
+                ? Math.round(
+                    (todos.filter(t => t.completed).length / todos.length) * 100
+                )
+                : 0
     }), [todos]);
 
+    /*
+      useCallback memoizes functions
+      prevents recreating them every render
+    */
     const addNote = useCallback(() => {
-        if (newNote.trim()) {
-            setNotes([...notes, { id: Date.now(), text: newNote, timestamp: new Date().toLocaleTimeString() }]);
-            setNewNote('');
-            inputRef.current?.focus();
-        }
+        if (!newNote.trim()) return;
+
+        setNotes([
+            ...notes,
+            {
+                id: Date.now(),
+                text: newNote,
+                timestamp: new Date().toLocaleTimeString()
+            }
+        ]);
+
+        setNewNote('');
+
+        /* focus input again */
+        inputRef.current?.focus();
+
     }, [newNote, notes, setNotes]);
 
     const deleteNote = useCallback((id) => {
@@ -46,16 +102,34 @@ const AdvancedPatterns = () => {
         setTodoInput('');
     }, [todoInput, addTodo]);
 
+    /*
+      useEffect handles side effects.
+
+      Here:
+      - Add keyboard listener
+      - Remove listener on cleanup
+    */
     useEffect(() => {
+
         const handleKeyPress = (e) => {
-            if (e.key === 'Enter' && e.ctrlKey) {
-                if (document.activeElement === inputRef.current) addNote();
+            if (
+                e.key === 'Enter' &&
+                e.ctrlKey &&
+                document.activeElement === inputRef.current
+            ) {
+                addNote();
             }
         };
+
         window.addEventListener('keydown', handleKeyPress);
-        return () => window.removeEventListener('keydown', handleKeyPress);
+
+        return () => {
+            window.removeEventListener('keydown', handleKeyPress);
+        };
+
     }, [addNote]);
 
+    /* Dynamic theme styles */
     const cardStyle = {
         backgroundColor: theme.colors.card,
         color: theme.colors.text,
