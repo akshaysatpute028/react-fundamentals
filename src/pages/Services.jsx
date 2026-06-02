@@ -12,8 +12,8 @@ const Services = () => {
       icon: '⚛️',
       details: 'Components are reusable JavaScript functions that return JSX. There are two types: Functional and Class components. Modern React uses Functional components with Hooks.',
       example: `function Welcome({ name }) {
-                  return <h1>Hello, {name}!</h1>;
-                }`,
+  return <h1>Hello, {name}!</h1>;
+}`,
       keyPoints: [
         'Components are reusable UI building blocks',
         'Props allow data to flow from parent to child',
@@ -30,16 +30,16 @@ const Services = () => {
       details: 'State is data that changes over time. The useState hook lets functional components use state. State updates trigger re-renders.',
       example: `const [count, setCount] = useState(0);
 
-      function Counter() {
-        return (
-          <div>
-            <p>Count: {count}</p>
-            <button onClick={() => setCount(count + 1)}>
-              Increment
-            </button>
-          </div>
-        );
-      }`,
+function Counter() {
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>
+        Increment
+      </button>
+    </div>
+  );
+}`,
       keyPoints: [
         'useState returns an array with [value, setter]',
         'State updates should be immutable',
@@ -55,12 +55,12 @@ const Services = () => {
       icon: '🛣️',
       details: 'React Router enables navigation between different views without full page reloads. Use Routes and Route components to define paths.',
       example: `<Router>
-                  <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/about" element={<About />} />
-                    <Route path="/user/:id" element={<UserProfile />} />
-                  </Routes>
-                </Router>`,
+  <Routes>
+    <Route path="/" element={<Home />} />
+    <Route path="/about" element={<About />} />
+    <Route path="/user/:id" element={<UserProfile />} />
+  </Routes>
+</Router>`,
       keyPoints: [
         'Routing enables single-page navigation',
         'Route parameters allow dynamic URLs',
@@ -76,17 +76,17 @@ const Services = () => {
       icon: '📤',
       details: 'Props are arguments passed to React components. Data flows downward (parent to child). Use callbacks to communicate back up.',
       example: `// Parent Component
-                <Child name="Alice" age={25} onUpdate={handleUpdate} />
+<Child name="Alice" age={25} onUpdate={handleUpdate} />
 
-                // Child Component
-                function Child({ name, age, onUpdate }) {
-                  return (
-                    <div>
-                      <h1>{name}, age {age}</h1>
-                      <button onClick={() => onUpdate('new-value')}>Update</button>
-                    </div>
-                  );
-                }`,
+// Child Component
+function Child({ name, age, onUpdate }) {
+  return (
+    <div>
+      <h1>{name}, age {age}</h1>
+      <button onClick={() => onUpdate('new-value')}>Update</button>
+    </div>
+  );
+}`,
       keyPoints: [
         'Props flow from parent to child (unidirectional)',
         'Props are read-only in child components',
@@ -102,17 +102,17 @@ const Services = () => {
       icon: '🖱️',
       details: 'React events are similar to DOM events but use camelCase syntax. Event handlers receive a SyntheticEvent object.',
       example: `function Form() {
-                  const handleClick = (e) => {
-                    e.preventDefault();
-                    console.log('Form submitted');
-                  };
+  const handleClick = (e) => {
+    e.preventDefault();
+    console.log('Form submitted');
+  };
 
-                  return (
-                    <form onSubmit={handleClick}>
-                      <button type="submit">Submit</button>
-                    </form>
-                  );
-                }`,
+  return (
+    <form onSubmit={handleClick}>
+      <button type="submit">Submit</button>
+    </form>
+  );
+}`,
       keyPoints: [
         'React event handlers use camelCase (onClick, not onclick)',
         'Pass function reference or arrow function',
@@ -128,16 +128,16 @@ const Services = () => {
       icon: '✨',
       details: 'Follow established patterns to write code that is easy to maintain, test, and scale. Code should be readable and follow React philosophy.',
       example: `// Good: Meaningful component name, clear logic
-                function UserProfileCard({ userId }) {
-                  const [user, setUser] = useState(null);
+function UserProfileCard({ userId }) {
+  const [user, setUser] = useState(null);
 
-                  useEffect(() => {
-                    fetchUser(userId).then(setUser);
-                  }, [userId]);
+  useEffect(() => {
+    fetchUser(userId).then(setUser);
+  }, [userId]);
 
-                  if (!user) return <Loading />;
-                  return <div>{user.name}</div>;
-                }`,
+  if (!user) return <Loading />;
+  return <div>{user.name}</div>;
+}`,
       keyPoints: [
         'Keep components focused and single-responsibility',
         'Use meaningful names for components and variables',
