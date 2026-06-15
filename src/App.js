@@ -11,6 +11,8 @@ import NotFound from './pages/NotFound';
 import { ThemeProvider } from './context/ThemeContext';
 import './App.css';
 import Footer from './pages/Footer';
+import Playground from './pages/Playground.jsx';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
@@ -25,12 +27,13 @@ function App() {
               <Route path="/about" element={<About />} />
               <Route path="/services" element={<Services />} />
               <Route path="/advanced-patterns" element={<AdvancedPatterns />} />
+              <Route path="/playground" element={<Playground />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
 
-          
+
           <Footer />
         </div>
       </Router>

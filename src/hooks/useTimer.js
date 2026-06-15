@@ -20,11 +20,12 @@ export const useTimer = (initialTime = 300) => {
   }, [isActive, time]);
 
   const toggle = useCallback(() => setIsActive(prev => !prev), []);
+
   const reset = useCallback(() => {
     setIsActive(false);
     setTime(initialTime);
   }, [initialTime]);
-
+  //Reset button function
   const formatTime = (seconds) => {
     const mins = Math.floor(seconds / 60);
     const secs = seconds % 60;
