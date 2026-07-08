@@ -1,4 +1,5 @@
 // Main App Component - Root component that sets up routing for the entire application
+import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navigation from './components/Navigation';
@@ -12,7 +13,7 @@ import { ThemeProvider } from './context/ThemeContext';
 import './App.css';
 import Footer from './pages/Footer';
 import Playground from './pages/Playground.jsx';
-import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
   return (

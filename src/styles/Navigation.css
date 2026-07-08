@@ -2,119 +2,111 @@
 
 .navbar {
   /* Sticky positioning keeps the navbar at the top when scrolling */
-  position: sticky;
+  position: sticky !important;
   top: 0;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  padding: 1rem 0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  padding: 1rem 0 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
   z-index: 100;
+  display: flex !important;
 }
 
-.nav-container {
+.navbar .nav-container {
+  width: 100% !important;
   max-width: 1200px;
   margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
   padding: 0 2rem;
 }
 
 /* Logo/Brand styling */
 /* Navbar Logo */
 
-.nav-logo {
+.navbar .nav-logo {
   display: flex;
   align-items: center;
   gap: 10px;
-
   text-decoration: none;
-
   font-size: 1.7rem;
   font-weight: 700;
-
   letter-spacing: 0.5px;
-
   transition: all 0.3s ease;
 }
 
-.logo-text{
-  color: white;
-
+.navbar .logo-text {
+  color: white !important;
   background: linear-gradient(
     90deg,
     #61dafb,
     #ffffff
   );
-
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.react-logo-icon{
+.navbar .react-logo-icon {
   font-size: 2.2rem;
-
-  color: #61dafb;
-
+  color: #61dafb !important;
   animation: spinReact 12s linear infinite;
-
-  filter:
-    drop-shadow(
-      0 0 8px rgba(97,218,251,.5)
-    );
+  filter: drop-shadow(0 0 8px rgba(97,218,251,.5));
 }
 
-.nav-logo:hover{
+.navbar .nav-logo:hover {
   transform: scale(1.04);
 }
 
-.nav-logo:hover .react-logo-icon{
+.navbar .nav-logo:hover .react-logo-icon {
   animation-duration: 4s;
 }
 
-@keyframes spinReact{
-  from{
+@keyframes spinReact {
+  from {
     transform: rotate(0deg);
   }
-
-  to{
+  to {
     transform: rotate(360deg);
   }
 }
 
 /* Navigation menu - flex layout for horizontal menu */
-.nav-menu {
-  display: flex;
+.navbar .nav-menu {
+  display: flex !important;
+  flex-direction: row !important;
   list-style: none;
-  gap: 2rem;
-  margin: 0;
-  padding: 0;
+  gap: 2rem !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 /* Individual navigation items */
-.nav-item {
+.navbar .nav-item {
   margin: 0;
 }
 
 /* Navigation links styling */
-.nav-link {
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 1rem;
-  padding: 0.5rem 1rem;
+.navbar .nav-link {
+  color: white !important;
+  text-decoration: none !important;
+  font-weight: 500 !important;
+  font-size: 1rem !important;
+  padding: 0.5rem 1rem !important;
   border-radius: 4px;
   transition: all 0.3s ease;
+  display: inline-block;
 }
 
-.nav-link:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+.navbar .nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.2) !important;
   transform: translateY(-2px);
+  color: white !important;
 }
 
 /* Active link indicator */
-.nav-link.active {
-  background-color: rgba(255, 255, 255, 0.3);
-  border-bottom: 2px solid white;
+.navbar .nav-link.active {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+  color: white !important;
 }
 
 /* Mobile responsiveness */

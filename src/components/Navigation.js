@@ -1,7 +1,7 @@
 // Navigation Component - This is a simple navbar using React Router's Link component
 // Navigation allows users to move between different pages without reloading the page
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import '../styles/Navigation.css';
 import { FaReact } from 'react-icons/fa';
 
@@ -18,38 +18,37 @@ const Navigation = () => {
           <span className="logo-text">Fundamentals</span>
         </Link>
 
-        {/* Navigation links - Link is from React Router and prevents page reload */}
+        {/* Navigation links - NavLink is from React Router and automatically handles active class */}
         <ul className="nav-menu">
-          {/* Each Link component has a 'to' prop that specifies the route */}
           <li className="nav-item">
-            <Link to="/" className="nav-link">
+            <NavLink to="/" className="nav-link" end>
               Home
-            </Link>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <Link to="/about" className="nav-link">
+            <NavLink to="/about" className="nav-link">
               About
-            </Link>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <Link to="/services" className="nav-link">
+            <NavLink to="/services" className="nav-link">
               Services
-            </Link>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <Link to="/advanced-patterns" className="nav-link">
+            <NavLink to="/advanced-patterns" className="nav-link">
               Advanced Patterns
-            </Link>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <Link to="playground" className="nav-link">
+            <NavLink to="/playground" className="nav-link">
               Playground
-            </Link>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <Link to="/contact" className="nav-link">
+            <NavLink to="/contact" className="nav-link">
               Contact
-            </Link>
+            </NavLink>
           </li>
         </ul>
       </div>

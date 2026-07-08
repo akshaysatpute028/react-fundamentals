@@ -199,27 +199,27 @@ function UserProfileCard({ userId }) {
       </section>
 
       {selectedService && (
-        <div className="modal-overlay" onClick={() => setSelectedService(null)}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <button className="modal-close" onClick={() => setSelectedService(null)}>✕</button>
+        <div className="services-modal-overlay" onClick={() => setSelectedService(null)}>
+          <div className="services-modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="services-modal-close" onClick={() => setSelectedService(null)}>✕</button>
 
-            <div className="modal-header">
-              <span className="modal-icon">{selectedService.icon}</span>
+            <div className="services-modal-header">
+              <span className="services-modal-icon">{selectedService.icon}</span>
               <h2>{selectedService.title}</h2>
             </div>
 
-            <div className="modal-body">
-              <div className="modal-section">
+            <div className="services-modal-body">
+              <div className="services-modal-section">
                 <h3>Overview</h3>
                 <p>{selectedService.details}</p>
               </div>
 
-              <div className="modal-section">
+              <div className="services-modal-section">
                 <h3>Code Example</h3>
                 <pre className="code-block"><code>{selectedService.example}</code></pre>
               </div>
 
-              <div className="modal-section">
+              <div className="services-modal-section">
                 <h3>Key Points</h3>
                 <ul className="key-points">
                   {selectedService.keyPoints.map((point, idx) => (
@@ -228,7 +228,7 @@ function UserProfileCard({ userId }) {
                 </ul>
               </div>
 
-              <div className="modal-section">
+              <div className="services-modal-section">
                 <h3>Real-World Usage</h3>
                 <p className="real-world">{selectedService.realWorldUse}</p>
               </div>

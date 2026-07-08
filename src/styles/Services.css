@@ -191,7 +191,7 @@
 }
 
 /* MODAL STYLES */
-.modal-overlay {
+.services-modal-overlay {
   display: flex;
   position: fixed;
   top: 0;
@@ -212,7 +212,7 @@
   to { opacity: 1; }
 }
 
-.modal-content {
+.services-modal-content {
   background: white;
   border-radius: 12px;
   max-width: 600px;
@@ -235,7 +235,7 @@
   }
 }
 
-.modal-close {
+.services-modal-close {
   position: absolute;
   top: 1rem;
   right: 1rem;
@@ -251,13 +251,13 @@
   z-index: 10;
 }
 
-.modal-close:hover {
+.services-modal-close:hover {
   background: #667eea;
   color: white;
   transform: rotate(90deg);
 }
 
-.modal-header {
+.services-modal-header {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
   padding: 2rem;
@@ -266,28 +266,28 @@
   gap: 1rem;
 }
 
-.modal-icon {
+.services-modal-icon {
   font-size: 2.5rem;
 }
 
-.modal-header h2 {
+.services-modal-header h2 {
   margin: 0;
   font-size: 1.8rem;
 }
 
-.modal-body {
+.services-modal-body {
   padding: 2rem;
 }
 
-.modal-section {
+.services-modal-section {
   margin-bottom: 2rem;
 }
 
-.modal-section:last-child {
+.services-modal-section:last-child {
   margin-bottom: 0;
 }
 
-.modal-section h3 {
+.services-modal-section h3 {
   color: #333;
   font-size: 1.2rem;
   margin-bottom: 1rem;
@@ -336,20 +336,20 @@
 }
 
 /* Scrollbar styling for modal */
-.modal-content::-webkit-scrollbar {
+.services-modal-content::-webkit-scrollbar {
   width: 8px;
 }
 
-.modal-content::-webkit-scrollbar-track {
+.services-modal-content::-webkit-scrollbar-track {
   background: #f1f1f1;
 }
 
-.modal-content::-webkit-scrollbar-thumb {
+.services-modal-content::-webkit-scrollbar-thumb {
   background: #667eea;
   border-radius: 4px;
 }
 
-.modal-content::-webkit-scrollbar-thumb:hover {
+.services-modal-content::-webkit-scrollbar-thumb:hover {
   background: #764ba2;
 }
 
@@ -376,19 +376,19 @@
     font-size: 1.5rem;
   }
 
-  .modal-overlay {
+  .services-modal-overlay {
     padding: 0.5rem;
   }
 
-  .modal-content {
+  .services-modal-content {
     max-height: 90vh;
   }
 
-  .modal-header {
+  .services-modal-header {
     padding: 1.5rem;
   }
 
-  .modal-body {
+  .services-modal-body {
     padding: 1.5rem;
   }
 
